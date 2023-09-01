@@ -1,0 +1,46 @@
+Package: newRR3
+Title: Analysis Framework for newRR Project
+Version: 0.1.0
+Authors@R: c(
+  person("Daniel", "Schlaepfer", email = "daniel.schlaepfer@alumni.ethz.ch",
+    comment = c(ORCID = "0000-0001-9973-2065"), role = c("aut", "cre")))
+Description: Analysis Framework for newRR Project.
+Depends:
+  R (>= 4.2.0)
+Imports:
+  methods
+Suggests:
+  biscale (>= 1.0.0),
+  CAST (>= 0.7.0),
+  colorspace (>= 2.1.0),
+  curl (>= 5.0.0),
+  data.table (>= 1.14.8),
+  dplyr (>= 1.1.0),
+  foreign (>= 0.8.84),
+  ggnewscale (>= 0.4.7),
+  ggpattern (>= 1.0.0),
+  ggplot2 (>= 3.4.0),
+  ggrepel (>= 0.9.3),
+  ggtext (>= 0.1.2),
+  Hmisc (>= 5.1.0),
+  httr (>= 1.4.6),
+  matrixStats (>= 1.0.0),
+  randomForest (>= 4.7.0),
+  RColorBrewer (>= 1.1.0),
+  rlang (>= 1.1.0),
+  sbtools (>= 1.2.0),
+  scales (>= 1.1.0),
+  sf (>= 1.0.14),
+  stars (>= 0.6.2),
+  terra (>= 1.7.39),
+  tidymodels (>= 1.1.0),
+  viridis (>= 0.6.0),
+  lintr (>= 3.1.0),
+  spelling (>= 2.1.0),
+  testthat (>= 3.1.0)
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Language: en-US
+License: MIT + file LICENSE
+Encoding: UTF-8
+Config/testthat/edition: 3

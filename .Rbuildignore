@@ -1,0 +1,9 @@
+^\.git*
+^\.github$
+^\.lintr$
+^CODE_OF_CONDUCT\.md$
+^cran-comments\.md$
+^doc$
+^LICENSE\.md$
+^NEWS\.md$
+^project$
