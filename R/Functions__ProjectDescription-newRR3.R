@@ -370,14 +370,15 @@ standardize_vtags <- function(x, tags) {
 #' )
 #'
 #' @export
-simplify_variables_names <- function(x) {
+simplify_variables_names <- function(
+  x,
+  tags_to_remove = c(
+    "delta", "robustdelta", "simpledelta",
+    "acrmoddistr", "acrmodagree", "acrmodrobust"
+  )
+) {
   tmp_ptrn <- paste0(
-    "(",
-    c(
-      "delta", "robustdelta", "simpledelta",
-      "acrmoddistr", "acrmodagree", "acrmodrobust"
-    ),
-    ")",
+    "(", tags_to_remove, ")",
     collapse = "|"
   )
 

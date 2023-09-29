@@ -943,7 +943,7 @@ plot_spatialtabulation_stackedbars <- function(data, var_y, colorscale) {
     c("values", var_y, "Response", "Var") %in% colnames(data)
   )
 
-  values <- var_y <- Response <- Var <- NULL
+  values <- Response <- Var <- NULL
 
   ggplot2::ggplot(data = data) +
     ggplot2::aes(
@@ -977,7 +977,7 @@ plot_spatialtabulation_stackedbars2 <- function(data, var_y, colorscale) {
     c("values", var_y, "Response", "Var") %in% colnames(data)
   )
 
-  values <- var_y <- Response <- Var <- NULL
+  values <- Response <- Var <- NULL
 
   ggplot2::ggplot(data = data) +
     ggplot2::aes(
@@ -1022,7 +1022,7 @@ plot_spatialtabulation_stackedbars3 <- function(data, var_y, colorscale) {
     c("values", var_y, "Response", "Var") %in% colnames(data)
   )
 
-  values <- acrmod_level <- Response <- width <- var_y <- Var <- NULL
+  values <- acrmod_level <- Response <- width <- Var <- NULL
 
   ggplot2::ggplot(data = data) +
     ggplot2::aes(
@@ -1136,7 +1136,7 @@ plot_map <- function(
       )
   }
 
-  if (!is.null(st_geom_state)) {
+  if (!is.null(st_geom_eco)) {
     tmp <- tmp +
       ggplot2::geom_sf(data = st_geom_eco, size = 0.5, fill = NA)
   }
