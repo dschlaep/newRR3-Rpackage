@@ -13,12 +13,12 @@ make_geotiff_catalyzed(
   add_esri_vat = TRUE,
   vat_rename_cns = NULL,
   overwrite = FALSE,
+  filetype = "GTiff",
   gdal_write_options = c("COMPRESS=LZW", "TFW=YES", "TILED=YES")
 )
 }
 \arguments{
-\item{rast_template}{A file name or a \code{terra} \code{SpatRaster} object.
-The template raster passed to \link[terra:rast]{terra::rast}.}
+\item{rast_template}{A file name or a \code{terra} \code{SpatRaster} object.}
 
 \item{rat}{A \code{data.frame} object. The raster (value) attribute table
 where the first column is \code{"Value"} that are matched against the values
@@ -42,6 +42,8 @@ write an \code{ESRI}-formatted value attribute table
 (\code{ESRI} attribute names are restricted to 10 or fewer characters).}
 
 \item{overwrite}{A logical value. Should an existing \code{fname} be overwritten?}
+
+\item{filetype}{Passed to \link[terra:writeRaster]{terra::writeRaster}, e.g., \code{"GTiff"}, \code{"COG"}}
 
 \item{gdal_write_options}{Passed to \link[terra:writeRaster]{terra::writeRaster}.}
 }

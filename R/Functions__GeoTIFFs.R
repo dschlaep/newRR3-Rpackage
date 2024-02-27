@@ -168,7 +168,7 @@ write_esri_vat <- function(x, filename, rename_cns = NULL) {
 
 
 
-#' Make a `GeoTIFF`
+#' Make a (`COG`) `GeoTIFF`
 #'
 #' @param rast_template A file name or a `terra` `SpatRaster` object.
 #' @param rat A `data.frame` object. The raster (value) attribute table
@@ -183,6 +183,7 @@ write_esri_vat <- function(x, filename, rename_cns = NULL) {
 #' @param vat_rename_cns List to rename attributes for the value attribute table
 #' (`ESRI` attribute names are restricted to 10 or fewer characters).
 #' @param overwrite A logical value. Should an existing `fname` be overwritten?
+#' @param filetype Passed to [terra::writeRaster], e.g., `"GTiff"`, `"COG"`
 #' @param gdal_write_options Passed to [terra::writeRaster].
 #'
 #' @name make_geotiff
@@ -203,6 +204,7 @@ make_geotiff_with_rat <- function(
   add_esri_vat = TRUE,
   vat_rename_cns = NULL,
   overwrite = FALSE,
+  filetype = "GTiff",
   gdal_write_options = c("COMPRESS=LZW", "TFW=YES", "TILED=YES")
 ) {
   stopifnot(
@@ -228,7 +230,7 @@ make_geotiff_with_rat <- function(
     x,
     filename = fname,
     overwrite = overwrite,
-    filetype = "GTiff",
+    filetype = filetype,
     wopt = list(gdal = gdal_write_options)
   )
 
@@ -264,6 +266,7 @@ make_geotiff_catalyzed <- function(
   add_esri_vat = TRUE,
   vat_rename_cns = NULL,
   overwrite = FALSE,
+  filetype = "GTiff",
   gdal_write_options = c("COMPRESS=LZW", "TFW=YES", "TILED=YES")
 ) {
   stopifnot(
@@ -301,7 +304,7 @@ make_geotiff_catalyzed <- function(
     x,
     filename = fname_used,
     overwrite = overwrite,
-    filetype = "GTiff",
+    filetype = filetype,
     wopt = list(gdal = gdal_write_options)
   )
 
@@ -313,7 +316,7 @@ make_geotiff_catalyzed <- function(
       tmpx,
       filename = fname,
       overwrite = overwrite,
-      filetype = "GTiff",
+      filetype = filetype,
       wopt = list(gdal = gdal_write_options)
     )
 
