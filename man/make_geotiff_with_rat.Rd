@@ -37,9 +37,9 @@ write an \code{ESRI}-formatted value attribute table
 
 \item{overwrite}{A logical value. Should an existing \code{fname} be overwritten?}
 
-\item{filetype}{Passed to \link[terra:writeRaster]{terra::writeRaster}, e.g., \code{"GTiff"}, \code{"COG"}}
+\item{filetype}{Passed to \code{\link[terra:writeRaster]{terra::writeRaster}}, e.g., \code{"GTiff"}, \code{"COG"}}
 
-\item{gdal_write_options}{Passed to \link[terra:writeRaster]{terra::writeRaster}.}
+\item{gdal_write_options}{Passed to \code{\link[terra:writeRaster]{terra::writeRaster}}.}
 }
 \description{
 Create a \code{GeoTIFF} from template \code{GeoTIFF} after adding spreadsheet as \code{RAT}

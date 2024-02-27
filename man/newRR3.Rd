@@ -2,15 +2,15 @@
 % Please edit documentation in R/newRR3-package.R
 \docType{package}
 \name{newRR3}
-\alias{newRR3}
 \alias{newRR3-package}
+\alias{newRR3}
 \title{\pkg{newRR3}: Analysis Framework for \code{newRR} Project.}
 \description{
 Analysis Framework for newRR Project.
 }
 \section{LICENSE}{
 
-Copyright (C) 2023 by
+Copyright (C) 2024 by
 newRR3 maintainer
 
 Permission is hereby granted, free of charge, to any person obtaining a

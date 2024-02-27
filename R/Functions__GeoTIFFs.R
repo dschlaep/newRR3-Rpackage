@@ -183,8 +183,8 @@ write_esri_vat <- function(x, filename, rename_cns = NULL) {
 #' @param vat_rename_cns List to rename attributes for the value attribute table
 #' (`ESRI` attribute names are restricted to 10 or fewer characters).
 #' @param overwrite A logical value. Should an existing `fname` be overwritten?
-#' @param filetype Passed to [terra::writeRaster], e.g., `"GTiff"`, `"COG"`
-#' @param gdal_write_options Passed to [terra::writeRaster].
+#' @param filetype Passed to [`terra::writeRaster`], e.g., `"GTiff"`, `"COG"`
+#' @param gdal_write_options Passed to [`terra::writeRaster`].
 #'
 #' @name make_geotiff
 NULL

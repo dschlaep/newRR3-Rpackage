@@ -4,7 +4,11 @@
 \alias{simplify_variables_names}
 \title{Remove suffices appended to derived variables}
 \usage{
-simplify_variables_names(x)
+simplify_variables_names(
+  x,
+  tags_to_remove = c("delta", "robustdelta", "simpledelta", "acrmoddistr", "acrmodagree",
+    "acrmodrobust")
+)
 }
 \arguments{
 \item{x}{A vector of character strings.}
