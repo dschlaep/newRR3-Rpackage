@@ -552,7 +552,9 @@ import_EPAecoregionL3_polygon <- function(
 # nolint end: line_length_linter.
 download_NEadmin1_polygon <- function(
   path,
-  method_to_import = "download"
+  method_to_import = "download",
+  crs = "EPSG:6350",
+  ...
 ) {
   method_to_import <- match.arg(method_to_import)
 
@@ -561,7 +563,7 @@ download_NEadmin1_polygon <- function(
   fname_data <- file.path(
     dir_data,
     "NorthAmerica",
-    "ne_admin1_NorthAmerica_sf_aea.rds"
+    "ne_admin1_NorthAmerica_sf.rds"
   )
 
   if (!file.exists(fname_data)) {
@@ -585,19 +587,24 @@ download_NEadmin1_polygon <- function(
       utils::unzip(zip_data, exdir = dir_data_tmp)
     }
 
-
     #--- Subset to North America
     tmp_admin1 <- sf::st_read(dir_data_tmp)
 
     ids <-
       tmp_admin1[, "geonunit", drop = TRUE] %in%
       c("Canada", "Mexico", "United States of America")
-
-    tmp_admin1 <- sf::st_transform(tmp_admin1[ids, ], crs = "EPSG:6350")
+    tmp_admin1 <- tmp_admin1[ids, ]
 
     if (!all(sf::st_is_valid(tmp_admin1))) {
       tmp_admin1 <- sf::st_make_valid(tmp_admin1)
       stopifnot(sf::st_is_valid(tmp_admin1))
+    }
+
+
+    #--- Reproject if requested
+    crs <- sf::st_crs(crs)
+    if (!is.na(crs) && sf::st_crs(tmp_admin1) != crs) {
+      tmp_admin1 <- sf::st_transform(tmp_admin1, crs = crs)
     }
 
 
@@ -622,7 +629,8 @@ import_NEadmin1_polygon <- function(
   invisible(
     download_NEadmin1_polygon(
       path = dir_dataraw,
-      method_to_import = "download"
+      method_to_import = "download",
+      ...
     )
   )
 }

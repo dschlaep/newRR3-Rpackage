@@ -4,7 +4,12 @@
 \alias{download_NEadmin1_polygon}
 \title{Download Natural Earth's North American political boundaries "admin1"}
 \usage{
-download_NEadmin1_polygon(path, method_to_import = "download")
+download_NEadmin1_polygon(
+  path,
+  method_to_import = "download",
+  crs = "EPSG:6350",
+  ...
+)
 }
 \description{
 Download Natural Earth's North American political boundaries "admin1"
