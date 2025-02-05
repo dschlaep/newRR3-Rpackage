@@ -19,7 +19,7 @@ Suggests:
   foreign (>= 0.8.84),
   ggnewscale (>= 0.4.7),
   ggpattern (>= 1.0.0),
-  ggplot2 (>= 3.4.0),
+  ggplot2 (>= 3.5.0),
   ggrepel (>= 0.9.3),
   ggtext (>= 0.1.2),
   Hmisc (>= 5.1.0),

@@ -921,7 +921,8 @@ ggplot2_map_theme <- function(legend_xoffset = 0, legend_yoffset = 0) {
     legend.title = ggplot2::element_text(size = ggplot2::rel(1.1)),
     legend.text = ggplot2::element_text(size = ggplot2::rel(1)),
     # legend: lower-right corner of map
-    legend.position = c(
+    legend.position = "inside",
+    legend.position.inside = c(
       0.8 + legend_xoffset,
       0.4 + legend_yoffset
     ),
@@ -1299,7 +1300,8 @@ inset_densitycountplot <- function(
         axis.text.y = ggplot2::element_blank(),
         axis.ticks.y = ggplot2::element_blank(),
         # legend: top-left corner
-        legend.position = c(0.05, 0.95),
+        legend.position = "inside",
+        legend.position.inside = c(0.05, 0.95),
         legend.justification = c("left", "top"),
         legend.background = ggplot2::element_rect(fill = "white", linewidth = 0)
       )
