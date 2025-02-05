@@ -10,7 +10,7 @@ Analysis Framework for newRR Project.
 }
 \section{LICENSE}{
 
-Copyright (C) 2024 by
+Copyright (C) 2025 by
 newRR3 maintainer
 
 Permission is hereby granted, free of charge, to any person obtaining a

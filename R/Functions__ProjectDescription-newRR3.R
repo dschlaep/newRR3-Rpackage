@@ -568,7 +568,9 @@ get_project_description <- function(
     # date of random-forest model to predict RR indicators
     version_rf = "v20220324rf"
   ),
-  tag_sims = "SOILWAT2_simulations"
+  tag_sims = "SOILWAT2_simulations",
+  isClimatology = TRUE,
+  tag_scen1 = "ambient_1980-2020"
 ) {
 
   stopifnot(
@@ -583,15 +585,17 @@ get_project_description <- function(
 
   #------ Project settings ------
   meta <- list(
-    v = as.numeric_version("3.2.0"),
+    v = as.numeric_version("3.2.1"),
 
     # Simulation experiments
     # Future wall-to-wall split into three parts
     # -> separate scenario and time periods
     simexps = list(
       list = simexps,
-      tag_scen1 = "ambient_1980-2020"
+      tag_scen1 = tag_scen1
     ),
+
+    isClimatology = isClimatology,
 
     method = "gsu",
     tag_rr = "native-gridded-rf-predictedRR_from_su-predictors19",
@@ -898,20 +902,24 @@ get_project_description <- function(
         )
 
         # Scenario-specific path element
-        meta[["simexps"]][["tag_scen_path"]][[k0]] <- paste0(tmp, "-clim")
+        meta[["simexps"]][["tag_scen_path"]][[k0]] <- paste0(
+          tmp, if (isClimatology) "-clim"
+        )
+
         meta[["simexps"]][["tag_scen_path"]][[k0]][[1L]] <- paste0(
-          meta[["simexps"]][["tag_scen1"]],
-          "-clim"
+          meta[["simexps"]][["tag_scen1"]], if (isClimatology) "-clim"
         )
 
         # Identifications of scenario
         meta[["simexps"]][["tag_scen"]][[k0]] <- paste0(
           "sc", seq_len(nrow(meta[["simexps"]][["meta_scen"]][[k0]])), "_",
           meta[["simexps"]][["meta_scen"]][[k0]][, "Model"], "_",
-          tmp, "-clim"
+          tmp,
+          if (isClimatology) "-clim"
         )
         meta[["simexps"]][["tag_scen"]][[k0]][[1L]] <- paste0(
-          "sc1_NA_", meta[["simexps"]][["tag_scen1"]], "-clim"
+          "sc1_NA_", meta[["simexps"]][["tag_scen1"]],
+          if (isClimatology) "-clim"
         )
 
         # Identification of historical reference for scenario

@@ -16,7 +16,9 @@ get_project_description(
     = "RR-RFcertainty", mirrp = "MIRRP"),
   versions = list(version_inputs = "20220314", version_simexp = "20220408",
     version_simdata = "20221001", version_rf = "v20220324rf"),
-  tag_sims = "SOILWAT2_simulations"
+  tag_sims = "SOILWAT2_simulations",
+  isClimatology = TRUE,
+  tag_scen1 = "ambient_1980-2020"
 )
 }
 \arguments{
