@@ -12,7 +12,8 @@ inset_densitycountplot(
   consistency = NULL,
   consistency_lvls = NULL,
   add_vertical0 = TRUE,
-  show.legend = FALSE
+  show.legend = FALSE,
+  expandAxis = TRUE
 )
 }
 \description{

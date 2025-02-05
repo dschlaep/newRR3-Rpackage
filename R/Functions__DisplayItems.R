@@ -1213,7 +1213,8 @@ inset_densitycountplot <- function(
   consistency = NULL,
   consistency_lvls = NULL,
   add_vertical0 = TRUE,
-  show.legend = FALSE
+  show.legend = FALSE,
+  expandAxis = TRUE
 ) {
 
   if (is.null(consistency)) {
@@ -1303,7 +1304,7 @@ inset_densitycountplot <- function(
 
     res +
       # zoom (and not clip) into `limits`
-      ggplot2::coord_cartesian(xlim = limits) +
+      ggplot2::coord_cartesian(xlim = limits, expand = expandAxis) +
       # beautify plot theme
       newRR3::ggplot2_clean_theme() +
       ggplot2::theme(
