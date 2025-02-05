@@ -877,6 +877,31 @@ create_crosshatching <- function(
 }
 
 
+#' @export
+getLimits <- function(x, doOutlierRemovedRange = FALSE) {
+  limits <- c(NA_real_, NA_real_)
+
+  x <- suppressWarnings(as.numeric(x))
+  x <- x[is.finite(x)]
+
+  if (length(x) > 0) {
+    rlim <- range(x)
+
+    orr <- if (doOutlierRemovedRange) {
+      # outlier removed range (see Meyer & Pebesma 2021, `calc_AOArdi()`)
+      stats::quantile(x, probs = c(0.25, 0.75), style = 3L) +
+        c(-1.5, 1.5) * stats::IQR(x)
+    } else {
+      # but not for binned scales
+      rlim
+    }
+
+    limits <- c(max(rlim[[1L]], orr[[1L]]), min(rlim[[2L]], orr[[2L]]))
+  }
+
+  limits
+}
+
 
 #------ ggplot2 visuals ------
 #' Clean theme for `ggplot2`
